@@ -1,0 +1,110 @@
+<hr>
+<h2>Editions</h2>
+<p>Unless your specific deployment needs require the extended/deploy edition, we recommend the extended edition.</p>
+<h2>Package managers</h2>
+<h3>Snap</h3>
+<p><a href="https://snapcraft.io/">Snap</a> is a free and open-source package manager for Linux. Available for <a href="https://snapcraft.io/docs/installing-snapd">most distributions</a>, snap packages are simple to install and are automatically updated.</p>
+<p>The Hugo snap package is <a href="https://snapcraft.io/docs/snap-confinement">strictly confined</a>. Strictly confined snaps run in complete isolation, up to a minimal access level that's deemed always safe. The sites you create and build must be located within your home directory, or on removable media.</p>
+<p>To install the extended edition of Hugo:</p>
+<pre><code class="language-sh">sudo snap install hugo
+</code></pre>
+<p>To control automatic updates:</p>
+<pre><code class="language-sh"># disable automatic updates
+sudo snap refresh --hold hugo
+
+# enable automatic updates
+sudo snap refresh --unhold hugo
+</code></pre>
+<p>To control access to removable media:</p>
+<pre><code class="language-sh"># allow access
+sudo snap connect hugo:removable-media
+
+# revoke access
+sudo snap disconnect hugo:removable-media
+</code></pre>
+<p>To control access to SSH keys:</p>
+<pre><code class="language-sh"># allow access
+sudo snap connect hugo:ssh-keys
+
+# revoke access
+sudo snap disconnect hugo:ssh-keys
+</code></pre>
+<h2>Repository packages</h2>
+<p>Most Linux distributions maintain a repository for commonly installed applications.</p>
+<blockquote>
+<p>[!note]
+The Hugo version available in package repositories varies based on Linux distribution and release, and in some cases will not be the <a href="https://github.com/gohugoio/hugo/releases/latest">latest version</a>.</p>
+<p>Use one of the other installation methods if your package repository does not provide the desired version.</p>
+</blockquote>
+<h3>Alpine Linux</h3>
+<p>To install the extended edition of Hugo on <a href="https://alpinelinux.org/">Alpine Linux</a>:</p>
+<pre><code class="language-sh">doas apk add --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community hugo
+</code></pre>
+<h3>Arch Linux</h3>
+<p>Derivatives of the <a href="https://archlinux.org/">Arch Linux</a> distribution of Linux include <a href="https://endeavouros.com/">EndeavourOS</a>, <a href="https://garudalinux.org/">Garuda Linux</a>, <a href="https://manjaro.org/">Manjaro</a>, and others. To install the extended edition of Hugo:</p>
+<pre><code class="language-sh">sudo pacman -S hugo
+</code></pre>
+<h3>Debian</h3>
+<p>Derivatives of the <a href="https://www.debian.org/">Debian</a> distribution of Linux include <a href="https://elementary.io/">elementary OS</a>, <a href="https://neon.kde.org/">KDE neon</a>, <a href="https://www.linuxliteos.com/">Linux Lite</a>, <a href="https://linuxmint.com/">Linux Mint</a>, <a href="https://mxlinux.org/">MX Linux</a>, <a href="https://pop.system76.com/">Pop!_OS</a>, <a href="https://ubuntu.com/">Ubuntu</a>, <a href="https://zorin.com/os/">Zorin OS</a>, and others. To install the extended edition of Hugo:</p>
+<pre><code class="language-sh">sudo apt install hugo
+</code></pre>
+<p>You can also download Debian packages from the <a href="https://github.com/gohugoio/hugo/releases/latest">latest release</a> page.</p>
+<h3>Exherbo</h3>
+<p>To install the extended edition of Hugo on <a href="https://www.exherbolinux.org/">Exherbo</a>:</p>
+<ol>
+<li>
+<p>Add this line to /etc/paludis/options.conf:</p>
+<pre><code class="language-text">www-apps/hugo extended
+</code></pre>
+</li>
+<li>
+<p>Install using the Paludis package manager:</p>
+<pre><code class="language-sh">cave resolve -x repository/heirecka
+cave resolve -x hugo
+</code></pre>
+</li>
+</ol>
+<h3>Fedora</h3>
+<p>Derivatives of the <a href="https://getfedora.org/">Fedora</a> distribution of Linux include <a href="https://www.centos.org/">CentOS</a>, <a href="https://www.redhat.com/">Red Hat Enterprise Linux</a>, and others. To install the extended edition of Hugo:</p>
+<pre><code class="language-sh">sudo dnf install hugo
+</code></pre>
+<h3>Gentoo</h3>
+<p>Derivatives of the <a href="https://www.gentoo.org/">Gentoo</a> distribution of Linux include <a href="https://www.calculate-linux.org/">Calculate Linux</a>, <a href="https://www.funtoo.org/">Funtoo</a>, and others. To install the extended edition of Hugo:</p>
+<ol>
+<li>
+<p>Specify the <code>extended</code> <a href="https://packages.gentoo.org/packages/www-apps/hugo">USE</a> flag in /etc/portage/package.use/hugo:</p>
+<pre><code class="language-text">www-apps/hugo extended
+</code></pre>
+</li>
+<li>
+<p>Build using the Portage package manager:</p>
+<pre><code class="language-sh">sudo emerge www-apps/hugo
+</code></pre>
+</li>
+</ol>
+<h3>NixOS</h3>
+<p>The NixOS distribution of Linux includes Hugo in its package repository. To install the extended edition of Hugo:</p>
+<pre><code class="language-sh">nix-env -iA nixos.hugo
+</code></pre>
+<h3>openSUSE</h3>
+<p>Derivatives of the <a href="https://www.opensuse.org/">openSUSE</a> distribution of Linux include <a href="https://geckolinux.github.io/">GeckoLinux</a>, <a href="https://linuxkamarada.com/">Linux Karmada</a>, and others. To install the extended edition of Hugo:</p>
+<pre><code class="language-sh">sudo zypper install hugo
+</code></pre>
+<h3>Solus</h3>
+<p>The <a href="https://getsol.us/">Solus</a> distribution of Linux includes Hugo in its package repository. To install the extended edition of Hugo:</p>
+<pre><code class="language-sh">sudo eopkg install hugo
+</code></pre>
+<h3>Void Linux</h3>
+<p>To install the extended edition of Hugo on <a href="https://voidlinux.org/">Void Linux</a>:</p>
+<pre><code class="language-sh">sudo xbps-install -S hugo
+</code></pre>
+<h2>Comparison</h2>
+<p> |Prebuilt binaries|Package managers|Repository packages|Build from source
+:--|:--:|:--:|:--:|:--:
+Easy to install?|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:
+Easy to upgrade?|:heavy_check_mark:|:heavy_check_mark:|varies|:heavy_check_mark:
+Easy to downgrade?|:heavy_check_mark:|:heavy_check_mark: [^1]|varies|:heavy_check_mark:
+Automatic updates?|:x:|varies [^2]|:x:|:x:
+Latest version available?|:heavy_check_mark:|:heavy_check_mark:|varies|:heavy_check_mark:</p>
+<p>[^1]: Easy if a previous version is still installed.
+[^2]: Snap packages are automatically updated. Homebrew requires advanced configuration.</p>
