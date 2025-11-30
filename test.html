@@ -1,4 +1,3 @@
-<hr>
 <h2>Editions</h2>
 <p>Unless your specific deployment needs require the extended/deploy edition, we recommend the extended edition.</p>
 <h2>Package managers</h2>
@@ -52,13 +51,11 @@ The Hugo version available in package repositories varies based on Linux distrib
 <h3>Exherbo</h3>
 <p>To install the extended edition of Hugo on <a href="https://www.exherbolinux.org/">Exherbo</a>:</p>
 <ol>
-<li>
-<p>Add this line to /etc/paludis/options.conf:</p>
+<li><p>Add this line to /etc/paludis/options.conf:</p>
 <pre><code class="language-text">www-apps/hugo extended
 </code></pre>
 </li>
-<li>
-<p>Install using the Paludis package manager:</p>
+<li><p>Install using the Paludis package manager:</p>
 <pre><code class="language-sh">cave resolve -x repository/heirecka
 cave resolve -x hugo
 </code></pre>
@@ -71,13 +68,11 @@ cave resolve -x hugo
 <h3>Gentoo</h3>
 <p>Derivatives of the <a href="https://www.gentoo.org/">Gentoo</a> distribution of Linux include <a href="https://www.calculate-linux.org/">Calculate Linux</a>, <a href="https://www.funtoo.org/">Funtoo</a>, and others. To install the extended edition of Hugo:</p>
 <ol>
-<li>
-<p>Specify the <code>extended</code> <a href="https://packages.gentoo.org/packages/www-apps/hugo">USE</a> flag in /etc/portage/package.use/hugo:</p>
+<li><p>Specify the <code>extended</code> <a href="https://packages.gentoo.org/packages/www-apps/hugo">USE</a> flag in /etc/portage/package.use/hugo:</p>
 <pre><code class="language-text">www-apps/hugo extended
 </code></pre>
 </li>
-<li>
-<p>Build using the Portage package manager:</p>
+<li><p>Build using the Portage package manager:</p>
 <pre><code class="language-sh">sudo emerge www-apps/hugo
 </code></pre>
 </li>
