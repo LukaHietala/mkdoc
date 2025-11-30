@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
 
 	size_t read_size = fread(input, 1, file_size, md_file);
 	if (read_size != (size_t)file_size) {
-		fprintf(stderr, "Failed to read entire file\n");
+		perror("failed to read entire file");
 		free(input);
 		fclose(md_file);
 		return 1;
@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
 	FILE *html_file = fopen(argv[2], "w");
 
 	if (!html_file) {
-		perror("Failed to open output file");
+		perror("failed to open output file");
 		free(input);
 		return 1;
 	}
