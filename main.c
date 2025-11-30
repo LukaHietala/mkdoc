@@ -32,8 +32,13 @@ int main(int argc, char *argv[]) {
 		return 1;
 	}
 
-	/* TODO: check that file size is same as fread result */
-	fread(input, 1, file_size, md_file);
+	size_t read_size = fread(input, 1, file_size, md_file);
+	if (read_size != (size_t)file_size) {
+		fprintf(stderr, "Failed to read entire file\n");
+		free(input);
+		fclose(md_file);
+		return 1;
+	}
 	input[file_size] = '\0';
 	fclose(md_file);
 
