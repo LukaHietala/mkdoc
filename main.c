@@ -9,11 +9,16 @@ void output_callback(const MD_CHAR *text, MD_SIZE size, void *userdata) {
 }
 
 
-int main() {
-	FILE *md_file = fopen("test.md", "rb");
+int main(int argc, char *argv[]) {
+	if (argc < 3) {
+		fprintf(stderr, "Usage: %s <input.md> <output.html>\n", argv[0]);
+		return 1;
+	}
+
+	FILE *md_file = fopen(argv[1], "rb");
 
 	if (!md_file) {
-		perror("Failed to open test.md");
+		perror("Failed to open input file");
 		return 1;
 	}
 
@@ -32,16 +37,16 @@ int main() {
 	input[file_size] = '\0';
 	fclose(md_file);
 
-	FILE *html_file = fopen("test.html", "w");
+	FILE *html_file = fopen(argv[2], "w");
 
 	if (!html_file) {
-		perror("Failed to open test.html");
+		perror("Failed to open output file");
 		free(input);
 		return 1;
 	}
 
 	md_html(input, (MD_SIZE)file_size, output_callback, html_file, 0, 0);
-	
+
 	fclose(html_file);
 	free(input);
 	return 0;
